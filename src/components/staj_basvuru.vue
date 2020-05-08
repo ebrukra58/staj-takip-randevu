@@ -20,7 +20,7 @@
                         <input type="radio" id="tur_two" name="tur" value="2">
                         <label for="tur_two">Yurtdışı</label><br>
                         <input type="radio" id="tur_three" name="tur" value="3">
-                        <label for="tur_three">Erasmus</label><br>    
+                        <label for="tur_three ">Erasmus</label><br>    
                     </div>
                     <div id="donem">
                         <h3>Dönem İçi- Yaz</h3>
@@ -106,6 +106,14 @@
                     <div style="margin-top: 20px;"></div>
                     <div>
                         <button type="button" class="btn btn-primary btn-md">Tarihleri Seç</button>
+                    </div>
+                      <div style="margin-top: 20px;"></div>
+                    <div id="K-Ö">
+                        <h3>Dönem İçi- Yaz</h3>
+                        <input type="radio" id="kö_one" name="kö" value="1">
+                        <label for="kö_one">Özel</label><br>
+                        <input type="radio" id="kö_two" name="kö" value="2">
+                        <label for="kö_two">Kamu</label><br> 
                     </div>
                     </div>
                 </div>
