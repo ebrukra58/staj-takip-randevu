@@ -8,9 +8,9 @@
                 <div style="margin-top: 3rem;"></div>
                     <div id="sinif">
                         <h3>Sınıf Seçimi</h3>
-                        <input type="radio" id="sinif_one" name="sinif" value="1">
+                        <input type="radio" v-on:click="goster=true" id="sinif_one" name="sinif" value="1">
                         <label for="sinif_one">1</label><br>
-                        <input type="radio" id="sinif_two" name="sinif" value="2">
+                        <input type="radio" v-on:click="goster=false" id="sinif_two" name="sinif" value="2">
                         <label for="sinif_two">2 ve Üzeri</label><br>  
                     </div>
                     <div id="tur">
@@ -35,8 +35,6 @@
                         <label for="alan_one">Yazılım</label><br>
                         <input type="radio" id="alan_two" name="alan" value="2">
                         <label for="alan_two">Donanım</label><br> 
-                        <input type="radio" id="alan_three" name="alan" value="3">
-                        <label for="alan_three">Yazılım-Donanım</label><br> 
                     </div>
                     <div id="calısan">
                         <h3>Staj Yeri Çalışan Kontrolü</h3>
@@ -95,7 +93,7 @@
                             <div style="margin-top: 15px;"></div>
                             <button type="submit" class="btn btn-primary">Ekle</button>
                         </div>
-                    <div style="margin-top: 3rem;"></div>
+                    <div style="margin-top: 20px;"></div>
                         <h4>Staj Yapılacak Tarih Aralığını Seçiniz:</h4 >
                     <div class="input-daterange input-group" id="dat">
                         <input type="date" class="form-control" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
@@ -107,17 +105,41 @@
                     <div>
                         <button type="button" class="btn btn-primary btn-md">Tarihleri Seç</button>
                     </div>
-                      <div style="margin-top: 20px;"></div>
+                    <div style="margin-top: 20px;"></div>
                     <div id="K-Ö">
-                        <h3>Dönem İçi- Yaz</h3>
+                        <h3>Kamu - Özel Sektör</h3>
                         <input type="radio" id="kö_one" name="kö" value="1">
                         <label for="kö_one">Özel</label><br>
                         <input type="radio" id="kö_two" name="kö" value="2">
                         <label for="kö_two">Kamu</label><br> 
                     </div>
+                    <div style="margin-top: 20px;"></div>
+                    <div id="maas">
+                        <h3>Maaş Ödenecek Mi?</h3>
+                        <input type="radio" id="maas_one" name="maas" value="1">
+                        <label for="maas_one">Evet</label><br>
+                        <input type="radio" id="maas_two" name="maas" value="2">
+                        <label for="maas_two">Hayır</label><br> 
+                    </div>
+                    <div style="margin-top: 20px;"></div>
+                    <div id="sigorta">
+                        <h3>Sigortanı İş Yeri Yapacak Mı?</h3>
+                        <input type="radio" id="sigorta_one" name="sigorta" value="1">
+                        <label for="sigorta_one">Evet</label><br>
+                        <input type="radio" id="sigorta_two" name="sigorta" value="2">
+                        <label for="sigorta_two">Hayır</label><br> 
+                    </div>
                     </div>
                 </div>
-                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                     <div style="margin-top: 3rem;"></div>
+                     <div v-show="goster" id="uyari">
+                    <div class="alert alert-danger" role="alert">
+                        Staj yapamazsın!
+                    </div>
+                    </div>
+                </div>
+               
             </div>
         </div>
     </div>
@@ -129,6 +151,12 @@ export default {
 components:
   {
     Navbar
+  },
+  data:function()
+  {
+    return{
+        goster:false
+    };
   },
   created:function()
   {
